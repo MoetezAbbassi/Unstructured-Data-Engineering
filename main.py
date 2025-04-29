@@ -1,4 +1,6 @@
 from pyspark.sql import SparkSession
+from config.config import configuration
+from pyspark.sql.types import StructType
 
 if __name__ == "__main__":
     spark = (SparkSession.builder.appName('AWS_Spark_Unstructured')
@@ -11,3 +13,27 @@ if __name__ == "__main__":
             .config('spark.hadoop.fs.s3a.aws.credentials.provider', 'org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider')
             .getOrCreate()
             )
+    text_input_dir = 'C:\Users\Moetez\Desktop\Data Engineering projects\Unstructured Data Engineering\Unstructured-Data-Engineering\input\input_text'
+    json_input_dir = 'C:\Users\Moetez\Desktop\Data Engineering projects\Unstructured Data Engineering\Unstructured-Data-Engineering\input\input_json'
+    csv_input_dir = 'C:\Users\Moetez\Desktop\Data Engineering projects\Unstructured Data Engineering\Unstructured-Data-Engineering\input\input_csv'
+    pdf_input_dir = 'C:\Users\Moetez\Desktop\Data Engineering projects\Unstructured Data Engineering\Unstructured-Data-Engineering\input\input_pdf'
+    video_input_dir = 'C:\Users\Moetez\Desktop\Data Engineering projects\Unstructured Data Engineering\Unstructured-Data-Engineering\input\input_video'
+    img_input_dir = 'C:\Users\Moetez\Desktop\Data Engineering projects\Unstructured Data Engineering\Unstructured-Data-Engineering\input\input_img'
+    
+    data_schema = StructType([
+        StructField('file_name', StringType(), True),
+        StructField('position', StringType(), True),
+        StructField('classcode', StringType(), True),
+        StructField('salary_start', StringType(), True),
+        StructField('salary_end', StringType(), True),
+        StructField('end_date', StringType(), True),
+        StructField('req', StringType(), True),
+        StructField('notes', StringType(), True),
+        StructField('duties', StringType(), True),
+        StructField('selection', StringType(), True),
+        StructField('experience_length', StringType(), True),
+        StructField('job_type', StringType(), True),
+        StructField('education_length', StringType(), True),
+        StructField('school_type', StringType(), True),
+        StructField('application_location', StringType(), True),
+    ])
