@@ -1,6 +1,9 @@
 from pyspark.sql import SparkSession
 from config.config import configuration
-from pyspark.sql.types import StructType
+from pyspark.sql.types import StructField
+from pyspark.sql.types import StructType, StructField, StringType, DoubleType, DateType
+
+
 
 if __name__ == "__main__":
     spark = (SparkSession.builder.appName('AWS_Spark_Unstructured')
