@@ -8,7 +8,7 @@ def define_udfs():
     return{
         'extract_file_name_udf': udf(extract_file_name, StringType()),
         'extract_position_udf': udf(extract_file_name, StringType()),
-        'extract_salary_udf': udf(extract_file_name, StringType()),
+        'extract_salary_udf': udf(extract_file_name, DoubleType()),
         'extract_date_udf': udf(extract_file_name, DateType()),
         'extract_classcode_udf': udf(extract_file_name, StringType()),
         'extract_requirements_udf': udf(extract_file_name, StringType()),
